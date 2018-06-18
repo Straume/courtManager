@@ -14,5 +14,9 @@ class PagesController extends Controller
         return view('contacts');
     }
     
+    public function getCourts(){
+        return view('courts');
+    }
+    
     
 }

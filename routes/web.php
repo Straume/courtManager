@@ -13,8 +13,16 @@
 
 Route::get('/', 'PagesController@getHome');
 
+Route::get('/home', 'PagesController@getHome');
+
+Route::get('/courts', 'courtsController@getCourts');
+
 Route::get('/contacts', 'PagesController@getContacts');
 
 Route::get('/messages' , 'MessagesController@getMessages');
 
 Route::post('/contacts/submit' , 'MessagesController@submit');
+
+Auth::routes();
+
+Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
