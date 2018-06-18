@@ -1,23 +1,23 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
+<h2>Your Dashboard</h2>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+<a href='/courts/create' class='btn btn-primary' style='margin:25px'>Create court</a>
 
-                    You are logged in!
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<h3>Your courts</h3>
+
+<table class='table table-striped'>
+    @foreach($courts as $court)
+        <tr>
+            <td style='text-align:center'>{{$court->name}}</td>
+            <td><a href='/courts/{{$court->id}}/edit' class = 'btn btn-default'>Edit</a></td>
+            <td>{!!Form::open(['action' => ['CourtsController@destroy', $court->id], 'method' => 'POST'])!!}
+                {{Form::hidden('_method', 'DELETE')}}
+                {{Form::submit('Delete',['class' => 'btn btn-danger'])}}
+                {!!Form::close()!!}
+            </td>
+        </tr>
+    @endforeach
+</table>
 @endsection

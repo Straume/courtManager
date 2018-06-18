@@ -13,15 +13,15 @@
 
 Route::get('/', 'PagesController@getHome');
 
-Route::get('/home', 'PagesController@getHome');
-
-Route::get('/courts', 'courtsController@getCourts');
+Route::get('/home', 'PagesController@getHome'); 
 
 Route::get('/contacts', 'PagesController@getContacts');
 
 Route::get('/messages' , 'MessagesController@getMessages');
 
 Route::post('/contacts/submit' , 'MessagesController@submit');
+
+Route::resource('courts','CourtsController');
 
 Auth::routes();
 

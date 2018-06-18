@@ -17,7 +17,8 @@ class courtsTableSeeder extends Seeder
             'date' => '2018-12-01',
             'timeFrom' => '10:10:00',
             'timeUntil' => '11:10:00',
-            'booked' => '0'
+            'booked' => '0',
+            'user_id' => '1'
         ]);
         
         DB::table('courts')->insert([
@@ -26,7 +27,8 @@ class courtsTableSeeder extends Seeder
             'date' => '2018-12-02',
             'timeFrom' => '10:20:00',
             'timeUntil' => '11:20:00',
-            'booked' => '0'
+            'booked' => '0',
+            'user_id' => '1'
         ]);
         
         DB::table('courts')->insert([
@@ -35,7 +37,8 @@ class courtsTableSeeder extends Seeder
             'date' => '2018-12-03',
             'timeFrom' => '10:30:00',
             'timeUntil' => '11:30:00',
-            'booked' => '0'
+            'booked' => '0',
+            'user_id' => '1'
         ]);
         
         DB::table('courts')->insert([
@@ -44,7 +47,8 @@ class courtsTableSeeder extends Seeder
             'date' => '2018-12-04',
             'timeFrom' => '10:40:00',
             'timeUntil' => '11:40:00',
-            'booked' => '0'
+            'booked' => '0',
+            'user_id' => '1'
         ]);
         
         DB::table('courts')->insert([
@@ -53,7 +57,8 @@ class courtsTableSeeder extends Seeder
             'date' => '2018-12-05',
             'timeFrom' => '10:50:00',
             'timeUntil' => '11:50:00',
-            'booked' => '0'
+            'booked' => '0',
+            'user_id' => '2'
         ]);
         
         DB::table('courts')->insert([
@@ -62,7 +67,8 @@ class courtsTableSeeder extends Seeder
             'date' => '2018-12-06',
             'timeFrom' => '10:00:00',
             'timeUntil' => '11:00:00',
-            'booked' => '0'
+            'booked' => '0',
+            'user_id' => '2'
         ]);
     }
 }

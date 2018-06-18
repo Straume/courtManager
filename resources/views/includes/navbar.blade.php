@@ -19,9 +19,13 @@
                         <li class="nav-item">
                             <a class="nav-link {{Request::is('contacts') ? 'active' : ''}}" href="/contacts">Contact us <span class="sr-only">(current)</span></a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link {{Request::is('messages') ? 'active' : ''}}" href="/messages">Messages <span class="sr-only">(current)</span></a>
-                        </li>
+                        @if(!Auth::guest())
+                            @if(Auth::user()->id == 1)
+                                <li class="nav-item">
+                                    <a class="nav-link {{Request::is('messages') ? 'active' : ''}}" href="/messages">Messages <span class="sr-only">(current)</span></a>
+                                </li>
+                            @endif
+                        @endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -48,7 +52,10 @@
                                         {{ __('Logout') }}
                                     </a>
                                     <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('dashboard') }}">{{ __('dashboard') }}</a>
+                                        <a class="nav-link {{Request::is('dashboard') ? 'active' : ''}}" href="/dashboard">Dashboard <span class="sr-only">(current)</span></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link {{Request::is('courts/create') ? 'active' : ''}}" href="/courts/create">Create <span class="sr-only">(current)</span></a>
                                     </li>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf

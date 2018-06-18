@@ -21,6 +21,7 @@ class CreateCourtsTable extends Migration
             $table->time('timeFrom');
             $table->time('timeUntil');
             $table->boolean('booked')->default($value=false);
+            $table->integer('user_id');
             $table->timestamps();
         });
     }
