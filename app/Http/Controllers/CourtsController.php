@@ -7,6 +7,12 @@ use App\Court;
 
 class CourtsController extends Controller
 {
+    
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['index  ', 'show']]);
+    }
+    
     public function index()
     {
         $courts = Court::all();
@@ -50,6 +56,11 @@ class CourtsController extends Controller
     public function edit($id)
     {
         $court = Court::find($id);
+        
+        if(auth()->user()->id !== $court->user_id){
+            return redirect('/courts')->with('error','You are not authorized to edit this');
+        }
+        
         return view('editCourt')->with('court',$court);
     }
 
@@ -77,8 +88,13 @@ class CourtsController extends Controller
 
     public function destroy($id)
     {
-        $post = Court::find($id);
-        $post->delete();
+        $court = Court::find($id);
+        
+        if(auth()->user()->id !== $court->user_id){
+            return redirect('/courts')->with('error','You are not authorized to delete this');
+        }
+        
+        $court->delete();
         return redirect('/courts')->with('success', 'Court removed');
     }
      
